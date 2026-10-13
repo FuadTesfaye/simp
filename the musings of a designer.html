@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>the musings of a designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Playfair+Display:ital,wght@1,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config = { theme: { extend: { fontFamily: {
+  sans: ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
+  script: ['"Playfair Display"', 'Georgia', 'serif'],
+  body: ['"Times New Roman"', 'Times', 'serif'],
+  mono: ['"JetBrains Mono"', 'ui-monospace', 'Menlo', 'monospace']
+}}}}
+</script>
+<style>
+:root{
+  --frame:#0a0e16; --ink:#000; --text:#fff; --muted:#d6d6d6; --dim:#8a8a8a;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--frame);color:var(--text);margin:0}
+.card{background:var(--ink);position:relative;overflow:hidden}
+.grain::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.35;mix-blend-mode:screen;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 .22 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+main h1.hero{font-size:min(8.4vw,12.5rem);line-height:.92;letter-spacing:-.055em}
+h1 .l{display:block;white-space:nowrap}
+.s{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.02em}
+.doodle{position:absolute;left:0;top:0;width:9.5em;height:6.8em;overflow:visible;pointer-events:none;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:3}
+</style>
+</head>
+<body class="font-sans antialiased">
+<div class="p-2 sm:p-3">
+<main class="card grain rounded-[1.75rem] sm:rounded-[2.5rem] min-h-[calc(100vh-1rem)]">
+
+  <!-- Hero -->
+  <header class="relative pt-[12vw] pl-[10.8vw] pr-6">
+    <h1 class="hero relative font-medium text-white">
+      <span class="l s" style="font-size:.92em;transform:rotate(-2deg);transform-origin:left bottom">the</span>
+      <span class="l">musings of</span>
+      <span class="l">a designer on</span>
+      <span class="l">what he <span class="s" style="font-size:1.08em;margin-left:.1em">loves</span></span>
+      <span class="l">about design and</span>
+      <span class="l">what he's <span class="s" style="font-size:1.08em;margin-left:.08em">learned</span></span>
+      <span class="l">along the way</span>
+
+      <!-- hand-drawn annotations (units scale with the heading) -->
+      <svg class="doodle" viewBox="0 0 760 544" aria-hidden="true" style="top:-.16em">
+        <g stroke="#4a7cf0"><path d="M338 14c0-17 14-30 31-29 17 1 27 16 25 33-2 17-17 27-33 24-15-3-23-14-23-28z"/><path d="M304 36c10-6 24 2 24 14 0 12-12 20-22 15-9-5-10-23-2-29z"/><path d="M293 72c7-4 16 2 16 10 0 8-8 13-14 10-6-3-8-16-2-20z"/></g>
+        <path stroke="#c5e04a" stroke-width="2.6" d="M0 166c18-12 34-14 52-6s34 4 52-6 38-4 58 2 36-8 58-10 40 6 66 0c14-3 28-8 50-10"/>
+        <path stroke="#e5522a" d="M300 240c40-34 150-40 192-8 40 32 8 74-60 88-72 14-168-6-182-52-8-28 30-52 80-60 60-10 120 4 150 28"/>
+        <path stroke="#d95fd0" stroke-width="3.2" d="M338 358l332-8c8 0 12 4 10 12l-4 70c-1 8-6 14-14 14l-322 4c-8 0-10-6-10-14z"/>
+        <path stroke="#e8a030" d="M493 496c10-14 24-20 34-10s20 14 32 2 28-14 42 2M598 474l26 14-24 16"/>
+      </svg>
+    </h1>
+  </header>
+
+  <!-- Prologue -->
+  <section class="relative mt-[10vw] pl-[21.3vw] pr-6 pb-8">
+    <div class="grid grid-cols-[4.5rem_minmax(0,29rem)] sm:grid-cols-[4.5rem_minmax(0,29rem)] gap-x-[1.2vw]">
+      <p class="font-body italic text-[.65rem] text-[var(--dim)] pt-1">prologue</p>
+      <div class="font-body text-[clamp(.75rem,1.05vw,.9375rem)] leading-[1.5] text-[var(--muted)] space-y-[1.4em]">
+        <p>In certain cultures, there is a tradition of couples renewing wedding vows every new decade to remind themselves why they’re together in the first place. It is a way to reaffirm one’s commitment, and it can be done for any type of relationship between a person and their object of affection.</p>
+        <p>After almost 20 years of doing the same thing over and over (i.e. designing digital products), I needed to stop for a second and put down on paper what it is that I find compelling about our craft.</p>
+        <p>Why do I do what I do? What lessons have I learned by doing it? And why, after so many years, do I choose to continue to do it? My hope is that the lessons captured here inspire other designers taking a similar path.</p>
+        <p>For many years I thought I was the one in the driver’s seat. That I was the one creating the products. But after writing down these notes, I realized Design has shaped me in more ways than I could have imagined. Design has changed how I view the world, how I make decisions.</p>
+        <p>I thought I was just another designer of products.</p>
+        <p>Turns out I am a <span class="relative italic text-white">product of<svg class="absolute left-[-2%] bottom-[-.35em] w-[104%] h-[.5em] overflow-visible" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><path d="M0 5c20 2 50 1 100-2" fill="none" stroke="#c5e04a" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg></span> design.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Author + link -->
+  <footer class="relative pl-[21.3vw] pr-6 pt-10 pb-40">
+    <div class="relative ml-[calc(4.5rem+1.2vw)] w-28 h-24 overflow-hidden rounded-t-sm" style="background:linear-gradient(160deg,#e8622a,#9c2a12 70%,#2b0f08)" role="img" aria-label="Portrait of the author"></div>
+    <svg class="absolute left-[calc(21.3vw-3.5rem)] top-[1.2rem] w-[16rem] h-[5rem] overflow-visible pointer-events-none" viewBox="0 0 260 80" fill="none" stroke="#e5522a" stroke-width="5" stroke-linecap="round" aria-hidden="true"><path d="M8 52c30-22 110-26 150-12 22 8 10 26-30 30-50 6-110 0-118-20-3-8 30-16 90-14"/><path d="M180 70l30-26 14 22 18-30"/></svg>
+    <p class="font-body italic text-[.65rem] text-[var(--muted)] mt-3 ml-[calc(4.5rem+1.2vw+1.8rem)] underline decoration-[var(--dim)] underline-offset-2">He’s not verified on Twitter.</p>
+  </footer>
+
+  <!-- Floating link pill -->
+  <a href="https://lessons.design" style="bottom:max(1.5rem,calc(env(safe-area-inset-bottom,0px) + 1rem))" class="fixed z-20 left-1/2 -translate-x-1/2 flex items-center gap-4 sm:gap-5 whitespace-nowrap rounded-full border border-white/10 bg-black/50 backdrop-blur-xl px-6 sm:px-8 py-4 sm:py-5 font-mono text-[.95rem] sm:text-[1.15rem] text-white shadow-[0_10px_40px_rgba(0,0,0,.6)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+    <span class="text-[var(--muted)]">Link</span>
+    <span>https://lessons.design</span>
+  </a>
+
+</main>
+</div>
+</body>
+</html>
