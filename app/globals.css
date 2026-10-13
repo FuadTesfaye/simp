@@ -62,9 +62,9 @@ body {
 }
 
 main h1.hero {
-  font-size: min(6.4vw, 8.75rem);
-  line-height: 0.94;
-  letter-spacing: -0.05em;
+  font-size: clamp(2.35rem, 4.8vw, 5.75rem);
+  line-height: 0.95;
+  letter-spacing: -0.045em;
 }
 
 h1 .l {

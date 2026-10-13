@@ -3,7 +3,7 @@ export default function Home() {
     <div className="p-2 sm:p-3 animate-fade-in">
       <main className="card grain rounded-[1.75rem] sm:rounded-[2.5rem] min-h-[calc(100vh-1rem)]">
         {/* Hero */}
-        <header className="relative pt-[7vw] sm:pt-[8vw] pl-[8vw] sm:pl-[10vw] pr-6">
+        <header className="relative pt-8 sm:pt-12 lg:pt-14 pl-[6vw] sm:pl-[10vw] pr-6">
           <h1 className="hero relative font-medium text-white">
             <span
               className="l s inline-block"
@@ -87,12 +87,12 @@ export default function Home() {
         </header>
 
         {/* Prologue */}
-        <section className="relative mt-[8vw] sm:mt-[7vw] pl-[8vw] sm:pl-[16vw] lg:pl-[18vw] pr-6 pb-10">
-          <div className="grid grid-cols-[4.5rem_minmax(0,42rem)] sm:grid-cols-[5.5rem_minmax(0,46rem)] gap-x-4 sm:gap-x-[2vw]">
-            <p className="font-body italic text-xs sm:text-sm text-[var(--dim)] pt-1 select-none tracking-wider">
+        <section className="relative mt-8 sm:mt-12 lg:mt-14 pl-[6vw] sm:pl-[14vw] lg:pl-[18vw] pr-6 pb-10">
+          <div className="grid grid-cols-[4rem_minmax(0,46rem)] sm:grid-cols-[5rem_minmax(0,50rem)] gap-x-4 sm:gap-x-6">
+            <p className="font-body italic text-xs sm:text-sm text-[var(--dim)] pt-1.5 select-none tracking-widest">
               prologue
             </p>
-            <div className="font-body text-[clamp(1rem,1.3vw,1.25rem)] leading-[1.75] text-[#e2e8f0] space-y-[1.75em]">
+            <div className="font-body text-[clamp(1.05rem,1.35vw,1.3rem)] leading-[1.8] text-[#f1f5f9] space-y-[1.6em]">
               <p>
                 In certain cultures, there is a tradition of renewing commitments every new milestone to remember why we began in the first place. For me, engineering is that enduring craft—an obsession with how distributed systems, event streams, and autonomous intelligences weave together into seamless human experiences.
               </p>
@@ -135,9 +135,9 @@ export default function Home() {
         </section>
 
         {/* Author + link */}
-        <footer className="relative pl-[8vw] sm:pl-[16vw] lg:pl-[18vw] pr-6 pt-12 pb-44">
+        <footer className="relative pl-[6vw] sm:pl-[14vw] lg:pl-[18vw] pr-6 pt-10 sm:pt-12 pb-36 sm:pb-40">
           <div
-            className="relative ml-[calc(4.5rem+1rem)] sm:ml-[calc(5.5rem+2vw)] w-36 h-32 sm:w-44 sm:h-36 overflow-hidden rounded-md transition-transform duration-500 hover:scale-[1.02] shadow-2xl border border-white/10"
+            className="relative ml-[calc(4rem+1rem)] sm:ml-[calc(5rem+1.5rem)] w-36 h-32 sm:w-44 sm:h-36 overflow-hidden rounded-md transition-transform duration-500 hover:scale-[1.02] shadow-2xl border border-white/10"
             style={{
               background:
                 "linear-gradient(160deg, #e8622a, #9c2a12 70%, #2b0f08)",
@@ -153,7 +153,7 @@ export default function Home() {
             />
           </div>
           <svg
-            className="absolute left-[calc(8vw-1.5rem)] sm:left-[calc(16vw-2.5rem)] lg:left-[calc(18vw-3rem)] top-[1.5rem] w-[18rem] h-[5.5rem] overflow-visible pointer-events-none"
+            className="absolute left-[calc(6vw-1.5rem)] sm:left-[calc(14vw-2.5rem)] lg:left-[calc(18vw-3rem)] top-[1.2rem] w-[18rem] h-[5.5rem] overflow-visible pointer-events-none"
             viewBox="0 0 260 80"
             fill="none"
             stroke="#e5522a"
@@ -172,7 +172,7 @@ export default function Home() {
               d="M180 70l30-26 14 22 18-30"
             />
           </svg>
-          <p className="font-body italic text-xs sm:text-sm text-[var(--muted)] mt-4 ml-[calc(4.5rem+1rem+1.5rem)] sm:ml-[calc(5.5rem+2vw+2rem)] underline decoration-[var(--dim)] underline-offset-4">
+          <p className="font-body italic text-xs sm:text-sm text-[var(--muted)] mt-4 ml-[calc(4rem+1rem+1.5rem)] sm:ml-[calc(5rem+1.5rem+2rem)] underline decoration-[var(--dim)] underline-offset-4">
             Fuad Tesfaye · He’s not verified on Twitter.
           </p>
         </footer>
@@ -183,9 +183,9 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
           style={{
-            bottom: "max(1.5rem, calc(env(safe-area-inset-bottom, 0px) + 1rem))",
+            bottom: "max(1.25rem, calc(env(safe-area-inset-bottom, 0px) + 0.75rem))",
           }}
-          className="fixed z-20 left-1/2 -translate-x-1/2 flex items-center gap-4 sm:gap-5 whitespace-nowrap rounded-full border border-white/10 bg-black/60 backdrop-blur-xl px-7 sm:px-9 py-4 sm:py-5 font-mono text-[1rem] sm:text-[1.2rem] text-white shadow-[0_15px_50px_rgba(0,0,0,.7)] transition-all duration-300 hover:scale-[1.03] hover:border-white/25 hover:bg-black/80 hover:shadow-[0_20px_60px_rgba(0,0,0,.9)] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white group"
+          className="fixed z-20 left-1/2 -translate-x-1/2 flex items-center gap-4 sm:gap-5 whitespace-nowrap rounded-full border border-white/10 bg-black/60 backdrop-blur-xl px-7 sm:px-9 py-3.5 sm:py-4 font-mono text-[0.95rem] sm:text-[1.15rem] text-white shadow-[0_15px_50px_rgba(0,0,0,.7)] transition-all duration-300 hover:scale-[1.03] hover:border-white/25 hover:bg-black/80 hover:shadow-[0_20px_60px_rgba(0,0,0,.9)] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white group"
         >
           <span className="text-[var(--muted)] transition-colors duration-200 group-hover:text-white">
             GitHub
