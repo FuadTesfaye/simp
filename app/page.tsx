@@ -86,24 +86,24 @@ export default function Home() {
           </h1>
         </header>
 
-        {/* Prologue */}
-        <section className="relative mt-8 sm:mt-12 lg:mt-14 pl-[6vw] sm:pl-[14vw] lg:pl-[18vw] pr-6 pb-10">
+        {/* 01 About */}
+        <section className="relative mt-10 sm:mt-14 pl-[6vw] sm:pl-[14vw] lg:pl-[18vw] pr-6 pb-6">
           <div className="grid grid-cols-[4rem_minmax(0,46rem)] sm:grid-cols-[5rem_minmax(0,50rem)] gap-x-4 sm:gap-x-6">
             <p className="font-body italic text-xs sm:text-sm text-[var(--dim)] pt-1.5 select-none tracking-widest">
-              prologue
+              about
             </p>
             <div className="font-body text-[clamp(1.05rem,1.35vw,1.3rem)] leading-[1.8] text-[#f1f5f9] space-y-[1.6em]">
               <p>
-                In certain cultures, there is a tradition of renewing commitments every new milestone to remember why we began in the first place. For me, engineering is that enduring craft—an obsession with how distributed systems, event streams, and autonomous intelligences weave together into seamless human experiences.
+                I’m Fuad Tesfaye, a Full-Stack AI Engineer based in Addis Ababa, Ethiopia. For the past several years, I’ve been designing and shipping production-grade, distributed, and AI-native systems across microservices, event-driven architectures, and high-concurrency cloud environments.
               </p>
               <p>
-                I’m Fuad Tesfaye, a Full-Stack AI Engineer based in Addis Ababa. Over the past several years, I’ve built mission-critical national platforms (telemetry-driven fleet management and procurement systems at INSA), spearheaded enterprise healthcare architecture at Zion, and won the global Vercel v0 Hackathon among 8,000+ developers worldwide.
+                My day-to-day spans two fronts: as Founding Engineer at Zion Software Agency, I guide technical strategy, client scoping, and enterprise healthcare architectures; while at INSA (Information Network Security Administration), I engineer nationwide fleet telemetry and procurement systems handling thousands of transactions.
               </p>
               <p>
-                Why do I build what I build? What keeps me up late optimizing Kafka partitions, designing resilient Spring Boot &amp; .NET microservices, and orchestrating multi-agent LLM systems? It is the conviction that elegant code can quietly carry the weight of real human lives.
+                Recently, I had the privilege of winning the global Vercel v0 Hackathon (AlgoWars: Neon Syntax) out of 8,000+ submissions worldwide—building a server-authoritative deterministic simulation engine powered by Google Gemini and the Vercel AI SDK.
               </p>
               <p>
-                For a long time I thought I was simply the one typing keystrokes into a terminal—the engineer crafting the machine. But looking back across every line shipped, I realized engineering has shaped me far more than I could have imagined. It taught me patience, architectural humility, and how to think in first principles.
+                I believe that the best software is built at the intersection of architectural discipline and creative intuition. Distributed systems, message queues, and neural models aren’t just tools—they are the modern infrastructure of human progress.
               </p>
               <p>I thought I was just an engineer building systems.</p>
               <p>
@@ -134,8 +134,242 @@ export default function Home() {
           </div>
         </section>
 
+        {/* 02 Stack */}
+        <section className="relative mt-8 sm:mt-12 pl-[6vw] sm:pl-[14vw] lg:pl-[18vw] pr-6 pb-6 border-t border-white/5 pt-8 sm:pt-10">
+          <div className="grid grid-cols-[4rem_minmax(0,46rem)] sm:grid-cols-[5rem_minmax(0,50rem)] gap-x-4 sm:gap-x-6">
+            <p className="font-body italic text-xs sm:text-sm text-[var(--dim)] pt-1.5 select-none tracking-widest">
+              stack
+            </p>
+            <div className="font-body text-[clamp(1.05rem,1.35vw,1.3rem)] leading-[1.8] text-[#f1f5f9] space-y-[1.6em]">
+              <p>
+                A craftsman is only as versatile as their fluency across the full stack. Over hundreds of thousands of lines of code and 2,680+ contributions this year alone, my core technical palette revolves around:
+              </p>
+              <div className="space-y-4 pt-1">
+                <div>
+                  <span className="s font-normal text-white text-[1.15em] block">
+                    Frontend &amp; Interfaces
+                  </span>
+                  <p className="text-[#cbd5e1] text-[0.95em] mt-1 leading-[1.7]">
+                    React, Next.js (App Router), TypeScript, Tailwind CSS, Vite, JavaScript, GSAP, and Three.js for interactive spatial visualizations.
+                  </p>
+                </div>
+                <div>
+                  <span className="s font-normal text-white text-[1.15em] block">
+                    Backend &amp; Distributed Systems
+                  </span>
+                  <p className="text-[#cbd5e1] text-[0.95em] mt-1 leading-[1.7]">
+                    Node.js, Express.js, Spring Boot, ASP.NET Core (C#), Python, PostgreSQL, MongoDB, Redis, Apache Kafka, RabbitMQ, and microservices architecture.
+                  </p>
+                </div>
+                <div>
+                  <span className="s font-normal text-white text-[1.15em] block">
+                    AI &amp; Autonomous Runtime
+                  </span>
+                  <p className="text-[#cbd5e1] text-[0.95em] mt-1 leading-[1.7]">
+                    Multi-agent AI orchestration, Google Gemini, OpenAI API, Groq, Anthropic Claude, Hugging Face, OpenRouter, and the Vercel AI SDK.
+                  </p>
+                </div>
+                <div>
+                  <span className="s font-normal text-white text-[1.15em] block">
+                    Infrastructure &amp; Tooling
+                  </span>
+                  <p className="text-[#cbd5e1] text-[0.95em] mt-1 leading-[1.7]">
+                    Docker, AWS, Google Cloud, Vercel, Git, Bun, Linux, and secure OS keyring cryptographic architectures.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 03 Experience */}
+        <section className="relative mt-8 sm:mt-12 pl-[6vw] sm:pl-[14vw] lg:pl-[18vw] pr-6 pb-6 border-t border-white/5 pt-8 sm:pt-10">
+          <div className="grid grid-cols-[4rem_minmax(0,46rem)] sm:grid-cols-[5rem_minmax(0,50rem)] gap-x-4 sm:gap-x-6">
+            <p className="font-body italic text-xs sm:text-sm text-[var(--dim)] pt-1.5 select-none tracking-widest">
+              experience
+            </p>
+            <div className="font-body text-[clamp(1.05rem,1.35vw,1.3rem)] leading-[1.8] text-[#f1f5f9] space-y-[2.2em]">
+              {/* Zion */}
+              <div>
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <span className="s font-normal text-white text-[1.25em]">
+                    Zion Software Agency
+                  </span>
+                  <span className="font-mono text-xs text-lime-400">
+                    01.2026—Present · Founding Engineer
+                  </span>
+                </div>
+                <p className="text-xs font-mono text-[var(--dim)] mt-0.5">
+                  Addis Ababa, Ethiopia · Hybrid
+                </p>
+                <p className="text-[#cbd5e1] text-[0.95em] mt-2 leading-[1.75]">
+                  Lead technical strategy, system architecture, and enterprise client scoping. Spearheaded the technical architecture proposal for Teklehaimanot General Hospital’s next-generation Health Information Management System (HIMS/EHR), designing FHIR-aligned data schemas, role-based access control (RBAC), and HL7 integration pathways. Mentoring a cohort of 30 software interns across PERN-stack finance systems and the agency&apos;s Zion ERP flagship product.
+                </p>
+              </div>
+
+              {/* INSA */}
+              <div>
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <span className="s font-normal text-white text-[1.25em]">
+                    INSA (Information Network Security Administration)
+                  </span>
+                  <span className="font-mono text-xs text-cyan-400">
+                    06.2025—Present · Full-Stack Developer
+                  </span>
+                </div>
+                <p className="text-xs font-mono text-[var(--dim)] mt-0.5">
+                  Fleet-Management &amp; Procurement · Addis Ababa, Ethiopia · On-site
+                </p>
+                <p className="text-[#cbd5e1] text-[0.95em] mt-2 leading-[1.75]">
+                  Engineered core backend services for a nationwide fleet-management platform using Spring Boot and microservices architecture, integrating Kafka for real-time telemetry streaming and PostgreSQL for persistence. Built high-performance, accessible frontend dashboards with Next.js (App Router), TypeScript, and Tailwind CSS. Architected a mission-critical procurement system for national agency workflows using C# / .NET microservices, RabbitMQ for asynchronous event propagation, and PostgreSQL, ensuring ACID compliance across multi-party approval chains.
+                </p>
+              </div>
+
+              {/* Fusion IT */}
+              <div>
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <span className="s font-normal text-white text-[1.25em]">
+                    Fusion IT Consultancy
+                  </span>
+                  <span className="font-mono text-xs text-[var(--muted)]">
+                    08.2025—05.2026 · Full-Stack Developer
+                  </span>
+                </div>
+                <p className="text-xs font-mono text-[var(--dim)] mt-0.5">
+                  Addis Ababa, Ethiopia · Hybrid
+                </p>
+                <p className="text-[#cbd5e1] text-[0.95em] mt-2 leading-[1.75]">
+                  Developed scalable web applications with Express.js and modern frontend frameworks. Engineered CRM systems and role-based access control with clean relational query optimization and maintainable Tailwind CSS components.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 04 Projects */}
+        <section className="relative mt-8 sm:mt-12 pl-[6vw] sm:pl-[14vw] lg:pl-[18vw] pr-6 pb-6 border-t border-white/5 pt-8 sm:pt-10">
+          <div className="grid grid-cols-[4rem_minmax(0,46rem)] sm:grid-cols-[5rem_minmax(0,50rem)] gap-x-4 sm:gap-x-6">
+            <p className="font-body italic text-xs sm:text-sm text-[var(--dim)] pt-1.5 select-none tracking-widest">
+              projects
+            </p>
+            <div className="font-body text-[clamp(1.05rem,1.35vw,1.3rem)] leading-[1.8] text-[#f1f5f9] space-y-[2.2em]">
+              <p>
+                Selected production systems, open-source utilities, and competitive engineering highlights:
+              </p>
+
+              {/* 01 AlgoWars */}
+              <div>
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <span className="s font-normal text-white text-[1.2em]">
+                    01. AlgoWars: Neon Syntax
+                  </span>
+                  <span className="font-mono text-xs text-lime-400">
+                    Global Vercel v0 Hackathon Winner (8,000+ entries)
+                  </span>
+                </div>
+                <p className="text-[#cbd5e1] text-[0.95em] mt-2 leading-[1.75]">
+                  A real-time multiplayer tactical coding strategy game where players author autonomous algorithms to command units across a dynamic neon grid. Engineered a server-authoritative deterministic simulation engine with zero-latency client prediction and integrated Google Gemini via the Vercel AI SDK to power an adaptive adversary.
+                </p>
+                <div className="mt-2 text-xs font-mono text-cyan-300">
+                  <a href="https://github.com/FuadTesfaye" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    Launch Project ↗
+                  </a>
+                  <span className="text-white/30 mx-2">·</span>
+                  <span className="text-[var(--dim)]">Vercel AI SDK · Google Gemini · TypeScript · Game Engine</span>
+                </div>
+              </div>
+
+              {/* 02 GitBridge */}
+              <div>
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <span className="s font-normal text-white text-[1.2em]">
+                    02. GitBridge
+                  </span>
+                  <span className="font-mono text-xs text-cyan-400">
+                    Open Source CLI on npm
+                  </span>
+                </div>
+                <p className="text-[#cbd5e1] text-[0.95em] mt-2 leading-[1.75]">
+                  A zero-wrapper Git context manager that automatically maps repositories to author identities, provider accounts, credentials, and SSH configurations. Engineered with 225 passing tests, 100% offline-first with zero telemetry, and secure OS keyring storage with AES-256-GCM encrypted fallbacks.
+                </p>
+                <div className="mt-2 text-xs font-mono text-cyan-300">
+                  <a href="https://www.npmjs.com/package/gitbridge" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    npm package ↗
+                  </a>
+                  <span className="text-white/30 mx-2">·</span>
+                  <a href="https://github.com/FuadTesfaye/gitbridge" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    Source Code ↗
+                  </a>
+                  <span className="text-white/30 mx-2">·</span>
+                  <span className="text-[var(--dim)]">TypeScript 5.8 · AES-256-GCM · Git Internals</span>
+                </div>
+              </div>
+
+              {/* 03 IlmFlow State */}
+              <div>
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <span className="s font-normal text-white text-[1.2em]">
+                    03. IlmFlow State
+                  </span>
+                  <span className="font-mono text-xs text-amber-400">
+                    Enterprise Event OS
+                  </span>
+                </div>
+                <p className="text-[#cbd5e1] text-[0.95em] mt-2 leading-[1.75]">
+                  Data-driven Islamic Event &amp; Competition Operating System for summits and Quran championships. Features proctored exams with authoritative timers, anti-cheat telemetry, negative marking, dynamic SVG QR lanyards, and real-time gate throughput velocity tracking.
+                </p>
+                <div className="mt-2 text-xs font-mono text-cyan-300">
+                  <span className="text-[var(--dim)]">Next.js 16 · Turbopack · Drizzle ORM · Bun · PostgreSQL · Tailwind v4</span>
+                </div>
+              </div>
+
+              <p className="text-xs sm:text-sm font-body italic text-[var(--muted)] pt-2">
+                Plus 17 more systems including Omni-MCP, INSA Fleet Management, Muwāsā, Continuity, and ARIA on GitHub.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* 05 Education */}
+        <section className="relative mt-8 sm:mt-12 pl-[6vw] sm:pl-[14vw] lg:pl-[18vw] pr-6 pb-6 border-t border-white/5 pt-8 sm:pt-10">
+          <div className="grid grid-cols-[4rem_minmax(0,46rem)] sm:grid-cols-[5rem_minmax(0,50rem)] gap-x-4 sm:gap-x-6">
+            <p className="font-body italic text-xs sm:text-sm text-[var(--dim)] pt-1.5 select-none tracking-widest">
+              education
+            </p>
+            <div className="font-body text-[clamp(1.05rem,1.35vw,1.3rem)] leading-[1.8] text-[#f1f5f9] space-y-[1.8em]">
+              <div>
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <span className="s font-normal text-white text-[1.2em]">
+                    Ethiopian Public Service University
+                  </span>
+                  <span className="font-mono text-xs text-[var(--dim)]">
+                    2022—2026 (Expected)
+                  </span>
+                </div>
+                <p className="text-[#cbd5e1] text-[0.95em] mt-1 leading-[1.75]">
+                  Software Engineering Coursework emphasizing distributed systems, algorithm design, data structures, and enterprise application architecture.
+                </p>
+              </div>
+
+              <div>
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <span className="s font-normal text-white text-[1.2em]">
+                    INSA Cyber Talent Summer Camp
+                  </span>
+                  <span className="font-mono text-xs text-[var(--dim)]">
+                    07.2025—09.2025
+                  </span>
+                </div>
+                <p className="text-[#cbd5e1] text-[0.95em] mt-1 leading-[1.75]">
+                  National competitive intensive on cybersecurity, defensive system architectures, networking protocols, penetration testing, and security audits.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Author + link */}
-        <footer className="relative pl-[6vw] sm:pl-[14vw] lg:pl-[18vw] pr-6 pt-10 sm:pt-12 pb-36 sm:pb-40">
+        <footer className="relative pl-[6vw] sm:pl-[14vw] lg:pl-[18vw] pr-6 pt-10 sm:pt-12 pb-36 sm:pb-40 border-t border-white/5">
           <div
             className="relative ml-[calc(4rem+1rem)] sm:ml-[calc(5rem+1.5rem)] w-36 h-32 sm:w-44 sm:h-36 overflow-hidden rounded-md transition-transform duration-500 hover:scale-[1.02] shadow-2xl border border-white/10"
             style={{
@@ -172,9 +406,28 @@ export default function Home() {
               d="M180 70l30-26 14 22 18-30"
             />
           </svg>
-          <p className="font-body italic text-xs sm:text-sm text-[var(--muted)] mt-4 ml-[calc(4rem+1rem+1.5rem)] sm:ml-[calc(5rem+1.5rem+2rem)] underline decoration-[var(--dim)] underline-offset-4">
-            Fuad Tesfaye · He’s not verified on Twitter.
-          </p>
+          <div className="mt-4 ml-[calc(4rem+1rem+1.5rem)] sm:ml-[calc(5rem+1.5rem+2rem)]">
+            <p className="font-body italic text-xs sm:text-sm text-[var(--muted)] underline decoration-[var(--dim)] underline-offset-4">
+              Fuad Tesfaye · He’s not verified on Twitter.
+            </p>
+            <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-[var(--dim)] mt-2">
+              <a href="mailto:fuadtesfaye24@gmail.com" className="text-cyan-400 hover:text-cyan-300">
+                fuadtesfaye24@gmail.com
+              </a>
+              <span>·</span>
+              <a href="https://github.com/FuadTesfaye" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+                GitHub ↗
+              </a>
+              <span>·</span>
+              <a href="https://www.linkedin.com/in/fuad-tesfaye/" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+                LinkedIn ↗
+              </a>
+              <span>·</span>
+              <a href="https://x.com/FuadTesfaye" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+                X ↗
+              </a>
+            </div>
+          </div>
         </footer>
 
         {/* Floating link pill */}
