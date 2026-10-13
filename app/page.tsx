@@ -1,4 +1,322 @@
+"use client";
+
+import { useState, useRef } from "react";
+
+interface ProjectItem {
+  number: string;
+  title: string;
+  badge?: string;
+  badgeColor?: string;
+  category: string;
+  year: string;
+  description: string;
+  tech: string;
+  launchUrl?: string;
+  sourceUrl?: string;
+  packageUrl?: string;
+}
+
+interface ProjectBatch {
+  id: string;
+  name: string;
+  range: string;
+  summary: string;
+  projects: ProjectItem[];
+}
+
+const PROJECT_BATCHES: ProjectBatch[] = [
+  {
+    id: "flagship",
+    name: "Flagship Systems",
+    range: "01—03",
+    summary: "AlgoWars, GitBridge, IlmFlow State",
+    projects: [
+      {
+        number: "01",
+        title: "AlgoWars: Neon Syntax",
+        category: "SYSTEMS",
+        year: "2026",
+        badge: "Global Vercel v0 Hackathon Winner (8,000+ entries)",
+        badgeColor: "text-lime-400",
+        description:
+          "A real-time multiplayer tactical coding strategy game where players author autonomous algorithms to command units across a dynamic neon grid. Engineered a server-authoritative deterministic simulation engine with zero-latency client prediction and integrated Google Gemini via the Vercel AI SDK to power an adaptive adversary.",
+        tech: "Vercel AI SDK · Google Gemini · TypeScript · Game Engine",
+        launchUrl: "https://github.com/FuadTesfaye",
+        sourceUrl: "https://github.com/FuadTesfaye",
+      },
+      {
+        number: "02",
+        title: "GitBridge",
+        category: "SYSTEMS",
+        year: "2026",
+        badge: "Open Source CLI on npm",
+        badgeColor: "text-cyan-400",
+        description:
+          "A zero-wrapper Git context manager that automatically maps repositories to author identities, provider accounts, credentials, and SSH configurations. Engineered with 225 passing tests, 100% offline-first with zero telemetry, and secure OS keyring storage with AES-256-GCM encrypted fallbacks.",
+        tech: "TypeScript 5.8 · AES-256-GCM · Git Internals",
+        packageUrl: "https://www.npmjs.com/package/gitbridge",
+        sourceUrl: "https://github.com/FuadTesfaye/gitbridge",
+      },
+      {
+        number: "03",
+        title: "IlmFlow State",
+        category: "PLATFORMS",
+        year: "2026",
+        badge: "Enterprise Event OS",
+        badgeColor: "text-amber-400",
+        description:
+          "Data-driven Islamic Event & Competition Operating System for summits and Quran championships. Features proctored exams with authoritative timers, anti-cheat telemetry, negative marking, dynamic SVG QR lanyards, and real-time gate throughput velocity tracking.",
+        tech: "Next.js 16 · Turbopack · Drizzle ORM · Bun · PostgreSQL · Tailwind v4",
+        sourceUrl: "https://github.com/FuadTesfaye/ilmflow-state",
+      },
+    ],
+  },
+  {
+    id: "ai",
+    name: "AI & Autonomous",
+    range: "04—08",
+    summary: "Continuity, ARIA, Muwāsā, AIQA, Omni-MCP",
+    projects: [
+      {
+        number: "04",
+        title: "Continuity",
+        category: "AI",
+        year: "2026",
+        badge: "Stateful Agent Orchestrator",
+        badgeColor: "text-purple-400",
+        description:
+          "Autonomous memory and continuity agent platform maintaining stateful memory and autonomous task pipelines across distributed sessions with conversational vector recall and fault-tolerant tool invocation loops.",
+        tech: "Python · FastAPI · OpenAI · LangChain · Redis",
+        sourceUrl: "https://github.com/FuadTesfaye",
+      },
+      {
+        number: "05",
+        title: "ARIA — Resort Intelligence Layer",
+        category: "AI",
+        year: "2025",
+        badge: "Hospitality Intelligence",
+        badgeColor: "text-cyan-400",
+        description:
+          "Autonomous multi-agent intelligence layer orchestrating luxury hospitality logistics and guest concierge automation with sub-second LLM streaming and spatial room resource dispatching.",
+        tech: "Next.js · Python · Groq · PostgreSQL · Tailwind CSS",
+        sourceUrl: "https://github.com/FuadTesfaye",
+      },
+      {
+        number: "06",
+        title: "Muwāsā (مُوَاسَاة)",
+        category: "AI",
+        year: "2026",
+        badge: "Culturally-Grounded Wellness",
+        badgeColor: "text-emerald-400",
+        description:
+          "Empathetic emotional support AI platform grounded in contextual understanding, cultural nuances, and ethical reasoning with privacy-first session sandboxing.",
+        tech: "TypeScript · Next.js · OpenRouter · Drizzle ORM",
+        sourceUrl: "https://github.com/FuadTesfaye/Muwasa",
+      },
+      {
+        number: "07",
+        title: "AIQA — Autonomous QA Runtime",
+        category: "AI",
+        year: "2026",
+        badge: "Autonomous QA Runtime",
+        badgeColor: "text-blue-400",
+        description:
+          "Self-healing test generation runtime that continuously explores web applications, detects regression states, and authors robust E2E test suites with zero human intervention.",
+        tech: "Playwright · TypeScript · Node.js · Claude API",
+        sourceUrl: "https://github.com/FuadTesfaye",
+      },
+      {
+        number: "08",
+        title: "Omni-MCP",
+        category: "AI",
+        year: "2026",
+        badge: "Unified MCP Server",
+        badgeColor: "text-pink-400",
+        description:
+          "Model Context Protocol server connecting developer tools, local file trees, and cloud telemetry directly into LLM runtimes with strict permission boundaries and semantic tool routing.",
+        tech: "Model Context Protocol · TypeScript · Node.js · CLI",
+        sourceUrl: "https://github.com/FuadTesfaye/omni-mcp",
+      },
+    ],
+  },
+  {
+    id: "systems",
+    name: "Systems & Cloud",
+    range: "09—14",
+    summary: "INSA Fleet, INSA Procurement, Keyshare, Dagmawi Dispatch, web2app, BioMatch",
+    projects: [
+      {
+        number: "09",
+        title: "INSA Fleet-Management Platform",
+        category: "SYSTEMS",
+        year: "2025",
+        badge: "Nationwide Telemetry Dispatch",
+        badgeColor: "text-sky-400",
+        description:
+          "Core backend services and real-time operator tracking views for nationwide transit. Integrates Spring Boot microservices with Apache Kafka for vehicle telemetry streaming and PostgreSQL persistence.",
+        tech: "Spring Boot · Apache Kafka · PostgreSQL · Next.js · Microservices",
+      },
+      {
+        number: "10",
+        title: "INSA Procurement Management System",
+        category: "SYSTEMS",
+        year: "2026",
+        badge: "National Agency Workflows",
+        badgeColor: "text-amber-400",
+        description:
+          "Mission-critical government procurement platform securing multi-party approval chains. Built on C# / .NET microservices with RabbitMQ event propagation and strict ACID verification.",
+        tech: "C# / .NET · RabbitMQ · PostgreSQL · Next.js · Event-Driven",
+      },
+      {
+        number: "11",
+        title: "Keyshare",
+        category: "SYSTEMS",
+        year: "2025",
+        badge: "Zero-Knowledge Secrets CLI",
+        badgeColor: "text-teal-400",
+        description:
+          "Lightweight zero-knowledge CLI for exchanging sensitive tokens and credentials via one-time encrypted links and temporary symmetric keys.",
+        tech: "Node.js · CLI · AES-256 · Native Crypto",
+        sourceUrl: "https://github.com/FuadTesfaye",
+      },
+      {
+        number: "12",
+        title: "The Dagmawi Dispatch",
+        category: "AI",
+        year: "2026",
+        badge: "Editorial Synthesizer",
+        badgeColor: "text-orange-400",
+        description:
+          "Automated historical analysis and editorial synthesizer producing deep geopolitical digests using collaborative multi-agent researcher swarms.",
+        tech: "Next.js · Python · OpenAI · Supabase",
+        sourceUrl: "https://github.com/FuadTesfaye",
+      },
+      {
+        number: "13",
+        title: "web2app",
+        category: "SYSTEMS",
+        year: "2026",
+        badge: "Desktop Binary Packager",
+        badgeColor: "text-violet-400",
+        description:
+          "Automated packaging CLI converting progressive web applications into native desktop binaries with offline cache fallbacks and system tray integrations.",
+        tech: "Rust · Tauri · TypeScript · Vite",
+        sourceUrl: "https://github.com/FuadTesfaye",
+      },
+      {
+        number: "14",
+        title: "BioMatch",
+        category: "AI",
+        year: "2025",
+        badge: "Talent & Architecture Alignment",
+        badgeColor: "text-rose-400",
+        description:
+          "AI-driven talent and role alignment engine analyzing developer commit graphs, architectural samples, and open-source contributions via vector embeddings.",
+        tech: "Python · FastAPI · Vector Embeddings · PostgreSQL",
+        sourceUrl: "https://github.com/FuadTesfaye",
+      },
+    ],
+  },
+  {
+    id: "platforms",
+    name: "Platforms & Web",
+    range: "15—20",
+    summary: "SafeHire, Portfolio, Ahl Al-Shir, AgentAvis, COMPUTE, Sovereign OS",
+    projects: [
+      {
+        number: "15",
+        title: "SafeHire Ethiopia",
+        category: "PLATFORMS",
+        year: "2025",
+        badge: "Verified Employment Trust",
+        badgeColor: "text-cyan-400",
+        description:
+          "National verified employment marketplace featuring cryptographic credential verification and tamper-evident background records.",
+        tech: "Next.js · Express.js · PostgreSQL · Tailwind CSS",
+        sourceUrl: "https://github.com/FuadTesfaye",
+      },
+      {
+        number: "16",
+        title: "Modern Developer Portfolio",
+        category: "PLATFORMS",
+        year: "2024",
+        badge: "Interactive UI/UX Craft",
+        badgeColor: "text-yellow-400",
+        description:
+          "High-performance portfolio with interactive GSAP animations, particle physics, and 3D scenes highlighting typographic discipline and craft.",
+        tech: "React · GSAP · Three.js · Tailwind CSS",
+        sourceUrl: "https://github.com/FuadTesfaye",
+      },
+      {
+        number: "17",
+        title: "Ahl Al-Shir (أهل الشعر)",
+        category: "PLATFORMS",
+        year: "2026",
+        badge: "Classical Arabic Archive",
+        badgeColor: "text-emerald-400",
+        description:
+          "Digital archive preserving classical Arabic literature and poetic meters with typographic ligature rendering and meter scanning algorithms.",
+        tech: "Next.js · TypeScript · Tailwind CSS · Amiri Typography",
+        sourceUrl: "https://github.com/FuadTesfaye",
+      },
+      {
+        number: "18",
+        title: "AgentAvis Insights",
+        category: "AI",
+        year: "2025",
+        badge: "Customer Feedback Synthesizer",
+        badgeColor: "text-blue-400",
+        description:
+          "Autonomous enterprise intelligence engine transforming thousands of unstructured customer reviews and support transcripts into prioritized engineering actions.",
+        tech: "Python · LLM Pipelines · Redis · Next.js",
+        sourceUrl: "https://github.com/FuadTesfaye",
+      },
+      {
+        number: "19",
+        title: "COMPUTE",
+        category: "AI",
+        year: "2025",
+        badge: "Spot Inference Broker",
+        badgeColor: "text-indigo-400",
+        description:
+          "Distributed compute broker scheduling spot AI inference workloads across decentralized serverless worker nodes with automated failover.",
+        tech: "Go · Docker · WebSockets · TypeScript",
+        sourceUrl: "https://github.com/FuadTesfaye",
+      },
+      {
+        number: "20",
+        title: "Sovereign OS",
+        category: "PLATFORMS",
+        year: "2025",
+        badge: "Browser Desktop Workstation",
+        badgeColor: "text-lime-400",
+        description:
+          "Browser-based desktop workstation environment providing sandbox window management, virtual filesystem, and in-browser terminal runtime.",
+        tech: "Next.js · React Windowing · TypeScript · Tailwind CSS",
+        sourceUrl: "https://github.com/FuadTesfaye",
+      },
+    ],
+  },
+];
+
 export default function Home() {
+  const [activeBatch, setActiveBatch] = useState(0);
+  const projectsRef = useRef<HTMLElement>(null);
+
+  const openBatch = (index: number) => {
+    setActiveBatch(index);
+    if (projectsRef.current) {
+      const rect = projectsRef.current.getBoundingClientRect();
+      if (rect.top < 0 || rect.top > 250) {
+        projectsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  };
+
+  const currentBatch = PROJECT_BATCHES[activeBatch] || PROJECT_BATCHES[0];
+  const hasNextBatch = activeBatch < PROJECT_BATCHES.length - 1;
+  const nextBatch = hasNextBatch ? PROJECT_BATCHES[activeBatch + 1] : null;
+
   return (
     <div className="p-2 sm:p-3 animate-fade-in">
       <main className="card grain rounded-[1.75rem] sm:rounded-[2.5rem] min-h-[calc(100vh-1rem)]">
@@ -247,85 +565,183 @@ export default function Home() {
         </section>
 
         {/* 04 Projects */}
-        <section className="relative mt-8 sm:mt-12 pl-[6vw] sm:pl-[14vw] lg:pl-[18vw] pr-6 pb-6 border-t border-white/5 pt-8 sm:pt-10">
+        <section
+          ref={projectsRef}
+          id="projects"
+          className="relative mt-8 sm:mt-12 pl-[6vw] sm:pl-[14vw] lg:pl-[18vw] pr-6 pb-6 border-t border-white/5 pt-8 sm:pt-10 scroll-mt-6"
+        >
           <div className="grid grid-cols-[4rem_minmax(0,46rem)] sm:grid-cols-[5rem_minmax(0,50rem)] gap-x-4 sm:gap-x-6">
             <p className="font-body italic text-xs sm:text-sm text-[var(--dim)] pt-1.5 select-none tracking-widest">
               projects
             </p>
-            <div className="font-body text-[clamp(1.05rem,1.35vw,1.3rem)] leading-[1.8] text-[#f1f5f9] space-y-[2.2em]">
-              <p>
-                Selected production systems, open-source utilities, and competitive engineering highlights:
-              </p>
-
-              {/* 01 AlgoWars */}
+            <div className="font-body text-[clamp(1.05rem,1.35vw,1.3rem)] leading-[1.8] text-[#f1f5f9] space-y-[2em]">
               <div>
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <span className="s font-normal text-white text-[1.2em]">
-                    01. AlgoWars: Neon Syntax
-                  </span>
-                  <span className="font-mono text-xs text-lime-400">
-                    Global Vercel v0 Hackathon Winner (8,000+ entries)
-                  </span>
-                </div>
-                <p className="text-[#cbd5e1] text-[0.95em] mt-2 leading-[1.75]">
-                  A real-time multiplayer tactical coding strategy game where players author autonomous algorithms to command units across a dynamic neon grid. Engineered a server-authoritative deterministic simulation engine with zero-latency client prediction and integrated Google Gemini via the Vercel AI SDK to power an adaptive adversary.
+                <p>
+                  Selected production systems, open-source utilities, and competitive engineering highlights across 20 cataloged systems:
                 </p>
-                <div className="mt-2 text-xs font-mono text-cyan-300">
-                  <a href="https://github.com/FuadTesfaye" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                    Launch Project ↗
-                  </a>
-                  <span className="text-white/30 mx-2">·</span>
-                  <span className="text-[var(--dim)]">Vercel AI SDK · Google Gemini · TypeScript · Game Engine</span>
+                {/* Batch chapter links */}
+                <div className="mt-3 flex flex-wrap items-center gap-1.5 text-xs font-mono">
+                  <span className="text-[var(--dim)] select-none mr-1">chapters:</span>
+                  {PROJECT_BATCHES.map((b, idx) => {
+                    const isActive = activeBatch === idx;
+                    return (
+                      <button
+                        key={b.id}
+                        type="button"
+                        onClick={() => openBatch(idx)}
+                        className={`px-2.5 py-1 rounded-md transition-all cursor-pointer ${
+                          isActive
+                            ? "bg-white/10 text-white border border-white/25 font-semibold"
+                            : "text-[var(--dim)] hover:text-white border border-transparent hover:border-white/10"
+                        }`}
+                      >
+                        {b.range}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
 
-              {/* 02 GitBridge */}
-              <div>
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <span className="s font-normal text-white text-[1.2em]">
-                    02. GitBridge
-                  </span>
-                  <span className="font-mono text-xs text-cyan-400">
-                    Open Source CLI on npm
-                  </span>
+              {/* Collapsed earlier batches (reopen buttons) */}
+              {activeBatch > 0 && (
+                <div className="space-y-2 pt-1">
+                  {PROJECT_BATCHES.slice(0, activeBatch).map((prevBatch, prevIdx) => (
+                    <button
+                      key={prevBatch.id}
+                      type="button"
+                      onClick={() => openBatch(prevIdx)}
+                      className="group w-full py-2.5 px-3.5 rounded-lg border border-white/10 hover:border-white/25 bg-white/[0.02] hover:bg-white/[0.06] flex items-center justify-between font-mono text-xs text-[var(--muted)] hover:text-white transition-all text-left cursor-pointer"
+                      title={`Reopen ${prevBatch.name}`}
+                    >
+                      <span className="flex items-center gap-2 truncate pr-2">
+                        <span className="text-cyan-400 font-bold">↑</span>
+                        <span className="text-white/85 font-medium">{prevBatch.range}: {prevBatch.name}</span>
+                        <span className="hidden sm:inline text-[var(--dim)] truncate">
+                          · {prevBatch.summary}
+                        </span>
+                      </span>
+                      <span className="text-[var(--dim)] group-hover:text-cyan-300 text-[11px] underline underline-offset-2 shrink-0">
+                        reopen ↗
+                      </span>
+                    </button>
+                  ))}
                 </div>
-                <p className="text-[#cbd5e1] text-[0.95em] mt-2 leading-[1.75]">
-                  A zero-wrapper Git context manager that automatically maps repositories to author identities, provider accounts, credentials, and SSH configurations. Engineered with 225 passing tests, 100% offline-first with zero telemetry, and secure OS keyring storage with AES-256-GCM encrypted fallbacks.
-                </p>
-                <div className="mt-2 text-xs font-mono text-cyan-300">
-                  <a href="https://www.npmjs.com/package/gitbridge" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                    npm package ↗
-                  </a>
-                  <span className="text-white/30 mx-2">·</span>
-                  <a href="https://github.com/FuadTesfaye/gitbridge" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                    Source Code ↗
-                  </a>
-                  <span className="text-white/30 mx-2">·</span>
-                  <span className="text-[var(--dim)]">TypeScript 5.8 · AES-256-GCM · Git Internals</span>
+              )}
+
+              {/* Active Batch Header (if not on batch 0) */}
+              {activeBatch > 0 && (
+                <div className="flex items-center justify-between text-xs font-mono text-[var(--dim)] border-b border-white/5 pb-2">
+                  <span className="text-white/80 font-medium">
+                    Chapter {activeBatch + 1}: {currentBatch.name} ({currentBatch.range})
+                  </span>
+                  <span>{currentBatch.projects.length} systems in this view</span>
                 </div>
+              )}
+
+              {/* Projects in the Active Batch */}
+              <div key={currentBatch.id} className="space-y-[2.2em] animate-fade-in">
+                {currentBatch.projects.map((item) => (
+                  <div key={item.number}>
+                    <div className="flex flex-wrap items-baseline justify-between gap-2">
+                      <span className="s font-normal text-white text-[1.2em]">
+                        {item.number}. {item.title}
+                      </span>
+                      {item.badge && (
+                        <span className={`font-mono text-xs ${item.badgeColor || "text-cyan-400"}`}>
+                          {item.badge}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-[#cbd5e1] text-[0.95em] mt-2 leading-[1.75]">
+                      {item.description}
+                    </p>
+                    <div className="mt-2 text-xs font-mono text-cyan-300 flex flex-wrap items-center gap-x-2 gap-y-1">
+                      {item.launchUrl && (
+                        <a
+                          href={item.launchUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:underline"
+                        >
+                          Launch Project ↗
+                        </a>
+                      )}
+                      {item.launchUrl && (item.packageUrl || item.sourceUrl) && (
+                        <span className="text-white/30">·</span>
+                      )}
+                      {item.packageUrl && (
+                        <a
+                          href={item.packageUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:underline"
+                        >
+                          npm package ↗
+                        </a>
+                      )}
+                      {item.packageUrl && item.sourceUrl && (
+                        <span className="text-white/30">·</span>
+                      )}
+                      {item.sourceUrl && (
+                        <a
+                          href={item.sourceUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:underline"
+                        >
+                          Source Code ↗
+                        </a>
+                      )}
+                      {(item.launchUrl || item.packageUrl || item.sourceUrl) && (
+                        <span className="text-white/30">·</span>
+                      )}
+                      <span className="text-[var(--dim)]">{item.tech}</span>
+                    </div>
+                  </div>
+                ))}
               </div>
 
-              {/* 03 IlmFlow State */}
-              <div>
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <span className="s font-normal text-white text-[1.2em]">
-                    03. IlmFlow State
+              {/* Bottom Load More & Navigation Bar */}
+              <div className="pt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t border-white/5">
+                {hasNextBatch && nextBatch ? (
+                  <button
+                    type="button"
+                    onClick={() => openBatch(activeBatch + 1)}
+                    className="group inline-flex items-center gap-2.5 font-mono text-xs sm:text-sm text-white/90 hover:text-white px-5 py-2.5 rounded-full border border-white/15 hover:border-cyan-400/40 bg-white/[0.03] hover:bg-cyan-950/20 transition-all duration-300 active:scale-[0.98] cursor-pointer"
+                  >
+                    <span className="text-cyan-400 transition-transform group-hover:translate-y-0.5">↓</span>
+                    <span>
+                      load more systems{" "}
+                      <span className="text-[var(--dim)] group-hover:text-cyan-300/80 transition-colors">
+                        ({nextBatch.range} · {nextBatch.name})
+                      </span>
+                    </span>
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => openBatch(0)}
+                    className="group inline-flex items-center gap-2 font-mono text-xs sm:text-sm text-cyan-300 hover:text-white px-5 py-2.5 rounded-full border border-white/15 hover:border-white/35 bg-white/[0.03] hover:bg-white/[0.08] transition-all cursor-pointer"
+                  >
+                    <span>↑ back to flagship works (01—03)</span>
+                  </button>
+                )}
+
+                <div className="flex items-center gap-3 text-xs font-mono text-[var(--dim)]">
+                  {activeBatch > 0 && (
+                    <button
+                      type="button"
+                      onClick={() => openBatch(activeBatch - 1)}
+                      className="hover:text-white transition-colors cursor-pointer"
+                    >
+                      ← previous ({PROJECT_BATCHES[activeBatch - 1].range})
+                    </button>
+                  )}
+                  <span>
+                    chapter {activeBatch + 1} of {PROJECT_BATCHES.length}
                   </span>
-                  <span className="font-mono text-xs text-amber-400">
-                    Enterprise Event OS
-                  </span>
-                </div>
-                <p className="text-[#cbd5e1] text-[0.95em] mt-2 leading-[1.75]">
-                  Data-driven Islamic Event &amp; Competition Operating System for summits and Quran championships. Features proctored exams with authoritative timers, anti-cheat telemetry, negative marking, dynamic SVG QR lanyards, and real-time gate throughput velocity tracking.
-                </p>
-                <div className="mt-2 text-xs font-mono text-cyan-300">
-                  <span className="text-[var(--dim)]">Next.js 16 · Turbopack · Drizzle ORM · Bun · PostgreSQL · Tailwind v4</span>
                 </div>
               </div>
-
-              <p className="text-xs sm:text-sm font-body italic text-[var(--muted)] pt-2">
-                Plus 17 more systems including Omni-MCP, INSA Fleet Management, Muwāsā, Continuity, and ARIA on GitHub.
-              </p>
             </div>
           </div>
         </section>
